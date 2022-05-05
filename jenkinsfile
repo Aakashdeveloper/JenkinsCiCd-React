@@ -4,19 +4,27 @@ pipeline {
     stages {
         stage("Install") {
             steps {
-                sh "npm install"
+                sh "npm version patch -m 'Upgrade to %s for reasons'"
+                sh "git add ."
+                sh "git commit -m 'version bump'"
+                sh "git push"
             }
         }
-        stage("Build") {
-            steps {
-                sh "npm run build"
-            }
-        }
-        stage("Deploy") {
-            steps {
-                sh "rm -rf /usr/local/var/www/react-app/build"
-                sh "cp -R /Users/aakash/.jenkins/workspace/reactbuild/build /usr/local/var/www/react-app/build"
-            }
-        }
+        // stage("Install") {
+        //     steps {
+        //         sh "npm install"
+        //     }
+        // }
+        // stage("Build") {
+        //     steps {
+        //         sh "npm run build"
+        //     }
+        // }
+        // stage("Deploy") {
+        //     steps {
+        //         sh "rm -rf /usr/local/var/www/react-app/build"
+        //         sh "cp -R /Users/aakash/.jenkins/workspace/reactbuild/build /usr/local/var/www/react-app/build"
+        //     }
+        // }
     }
 }

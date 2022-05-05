@@ -4,12 +4,8 @@ pipeline {
     stages {
         stage("Install") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'fixed',
-                 usernameVariable: 'username',
-                 passwordVariable: 'password')]){
-                    sh "npm version patch -m 'Upgrade to %s for reasons'"
-                    sh("git push http://aakashdeveloper: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@https://github.com/Aakashdeveloper/JenkinsCiCd-React")
-                }
+                sh "npm version patch -m 'Upgrade to %s for reasons'"
+                sh("git push http://aakashdeveloper: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@https://github.com/Aakashdeveloper/JenkinsCiCd-React")
             }
         }
         // stage("Install") {

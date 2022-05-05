@@ -5,7 +5,7 @@ pipeline {
         stage("Install") {
             steps {
                 sh "npm version patch -m 'Upgrade to %s for reasons'"
-                sh "git push"
+                sh "git push -u origin master"
             }
         }
         // stage("Install") {

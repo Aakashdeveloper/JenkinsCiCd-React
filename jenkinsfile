@@ -5,8 +5,6 @@ pipeline {
         stage("Install") {
             steps {
                 sh "npm version patch -m 'Upgrade to %s for reasons'"
-                sh "git add ."
-                sh "git commit -m 'version bump'"
                 sh "git push"
             }
         }
